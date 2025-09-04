@@ -16,6 +16,32 @@ $blue: #304571;
 $black: #000000;
 $white: #ffffff;
 
+.pink {
+  color: $pink;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.filled_button {
+  padding: 0.75rem 2rem;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: $black;
+  background-color: $yellow;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  width: 191px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($yellow, 0.6);
+  }
+}
+
 $mediaMaxWidth: 1248px;
 $mediaBp1Width: 768px;
 $mediaMinWidth: 360px;
@@ -28,6 +54,12 @@ $mediaMinWidth: 360px;
 @mixin flex-align-center {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: $mediaMinWidth) {
+  #root {
+    background-color: red;
+  }
 }
 
 #root {
@@ -45,15 +77,14 @@ $mediaMinWidth: 360px;
 
   .header {
     @include flex-column;
+    max-height: 555px;
 
     .header_nav {
       background-color: $black;
 
       .header_nav_content {
         @include flex-align-center;
-        width: 100%;
-        margin: 0 auto;
-        max-width: 1440px;
+        padding: 0 5em;
         justify-content: space-between;
         min-height: 48px;
         max-height: 80px;
@@ -86,6 +117,47 @@ $mediaMinWidth: 360px;
               }
             }
           }
+        }
+      }
+    }
+
+    .header_banner {
+      background-image:
+        url('./assets//EARTH.svg'), url('./assets/Rectangle\ 39610.svg');
+      background-size: clamp(300px, 48%, 350px), cover;
+      background-position-x: right, center;
+      background-position-y: center, center;
+      background-repeat: no-repeat;
+      height: 555px;
+      @include flex-align-center;
+
+      @media (max-width: $mediaBp1Width) {
+        background-position-x:
+          right -70px,
+          center;
+      }
+
+      @media (max-width: $mediaMinWidth) {
+        background-position-y:
+          top -70px,
+          center;
+        background-position-x: center;
+      }
+
+      .header_banner_content {
+        @include flex-column();
+        padding: 0 5em;
+        max-width: 690px;
+        color: $white;
+
+        .header_banner_title {
+          font-size: 4.5em;
+          line-height: 100%;
+          margin: 0;
+        }
+        .header_banner_subtitle {
+          font-size: 2em;
+          line-height: 120%;
         }
       }
     }

@@ -28,7 +28,18 @@ const App = () => {
             </ul>
           </div>
         </nav>
-        <section className="header_banner"></section>
+        <section className="header_banner">
+          <div className="header_banner_content">
+            <h1 className="header_banner_title">
+              Discover the vast expanses of <span className="pink">space</span>
+            </h1>
+            <p className="header_banner_subtitle">
+              Where the possibilities are{' '}
+              <span className="yellow">endless!</span>
+            </p>
+            <button className="filled_button">Learn more</button>
+          </div>
+        </section>
       </header>
       <main className="main"></main>
       <footer className="footer"></footer>
