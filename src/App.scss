@@ -103,10 +103,11 @@ $mediaMinWidth: 360px;
   justify-content: center;
   height: 100%;
   padding-left: 1em;
+  padding-bottom: 2em;
   max-width: 690px;
 
-  .button {
-    flex-shrink: 2;
+  @media (max-width: $mediaBp1Width) {
+    justify-content: end;
   }
 }
 
@@ -176,6 +177,10 @@ $mediaMinWidth: 360px;
         height: 555px;
         @include flex-align-center;
 
+        .tile_content {
+          justify-content: center;
+        }
+
         @media (max-width: $mediaBp1Width) {
           background-position-x:
             right -70px,
@@ -189,7 +194,6 @@ $mediaMinWidth: 360px;
             center;
           background-position-x: center;
           display: flex;
-          align-items: flex-end;
           text-align: center;
 
           .tile_content {
@@ -211,12 +215,10 @@ $mediaMinWidth: 360px;
         gap: 2em;
 
         .tile {
-          @include flex-align-center();
+          @include flex-column;
           flex: 1 1 calc(50% - 1em);
           height: 350px;
           border-radius: 10px;
-          justify-content: stretch;
-          align-items: stretch;
 
           background-position-x: center;
           background-position-y: center;
@@ -253,7 +255,6 @@ $mediaMinWidth: 360px;
 
           @media (max-width: $mediaBp1Width) {
             align-items: flex-end;
-            padding-bottom: 2em;
           }
         }
       }
