@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import './App.scss';
 import Logo from './assets/LOGO.svg';
+import { CloseMenuIcon, MenuIcon } from './burger-menu.component';
 import { CartLogo } from './cart-logo.component';
 
 const tilesInfo = [
@@ -33,21 +35,8 @@ const App = () => {
             <a className="header_logo" href="#">
               <img alt="Home" src={Logo} />
             </a>
-            <ul className="header_menu">
-              <li>
-                <a className="nav_link" href="#">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className="nav_link" href="#">
-                  Products
-                </a>
-              </li>
-              <a className="cart_logo" href="#">
-                <CartLogo className="cart_logo_svg" />
-              </a>
-            </ul>
+            <BurgerMenu />
+            <HeaderMenu />
           </div>
         </nav>
         <section className="header_banner">
@@ -59,7 +48,7 @@ const App = () => {
               Where the possibilities are{' '}
               <span className="yellow">endless!</span>
             </p>
-            <Button filled />
+            <LearnMoreButton filled />
           </div>
         </section>
       </header>
@@ -77,11 +66,13 @@ const App = () => {
   );
 };
 
-type ButtonProps = {
+type LearnMoreButtonProps = {
   filled?: boolean;
 };
 
-const Button = ({ filled }: ButtonProps = { filled: false }) => {
+const LearnMoreButton = (
+  { filled }: LearnMoreButtonProps = { filled: false },
+) => {
   return <button className={`button ${filled && 'filled'}`}>Learn more</button>;
 };
 
@@ -97,8 +88,59 @@ const Tile = ({ id, subtitle, title }: TileProps) => {
       <div className="tile_content">
         <h3 className="title">{title}</h3>
         <p className="subtitle">{subtitle}</p>
-        <Button />
+        <LearnMoreButton />
       </div>
+    </div>
+  );
+};
+
+const HeaderMenu = () => {
+  return (
+    <ul className="header_menu">
+      <li>
+        <a className="nav_link" href="#">
+          Home
+        </a>
+      </li>
+      <li>
+        <a className="nav_link" href="#">
+          Products
+        </a>
+      </li>
+      <a className="cart_logo" href="#">
+        <CartLogo className="cart_logo_svg" />
+      </a>
+    </ul>
+  );
+};
+
+const BurgerMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOnClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 360) {
+        console.log(window.innerWidth);
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <div className="burger_menu">
+      <button className="burger_menu_button" onClick={handleOnClick}>
+        {isOpen ? <CloseMenuIcon /> : <MenuIcon />}
+      </button>
+      {isOpen && (
+        <div className="burger_menu_content">
+          <HeaderMenu />
+        </div>
+      )}
     </div>
   );
 };

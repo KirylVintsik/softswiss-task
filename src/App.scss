@@ -130,7 +130,7 @@ $mediaMinWidth: 360px;
 
         .header_nav_content {
           @include flex-align-center;
-          padding: 0 5em;
+          padding: clamp(1em, 2vw, 4em);
           justify-content: space-between;
           min-height: 48px;
           max-height: 80px;
@@ -143,6 +143,7 @@ $mediaMinWidth: 360px;
               width: 71px;
             }
           }
+
           .header_menu {
             @include flex-align-center;
 
@@ -156,10 +157,47 @@ $mediaMinWidth: 360px;
                 background-clip: text;
               }
             }
+
             .cart_logo {
               &:hover {
                 svg > path {
                   fill: url('#cart_gradient');
+                }
+              }
+            }
+          }
+
+          .burger_menu {
+            display: none;
+            .burger_menu_button {
+              all: unset;
+              cursor: pointer;
+            }
+          }
+
+          @media (max-width: $mediaMinWidth) {
+            .header_menu {
+              display: none;
+            }
+            .burger_menu {
+              display: flex;
+              position: relative;
+
+              .burger_menu_button {
+                display: inline-block;
+              }
+
+              .burger_menu_content {
+                display: flex;
+                background-color: $blue;
+                position: absolute;
+                top: 40px;
+                right: 0px;
+                width: 120px;
+
+                > .header_menu {
+                  display: flex;
+                  flex-direction: column;
                 }
               }
             }
@@ -198,6 +236,7 @@ $mediaMinWidth: 360px;
 
           .tile_content {
             align-items: center;
+            justify-content: end;
             padding-bottom: 2em;
           }
         }
