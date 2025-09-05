@@ -123,7 +123,6 @@ const BurgerMenu = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 360) {
-        console.log(window.innerWidth);
         setIsOpen(false);
       }
     };
