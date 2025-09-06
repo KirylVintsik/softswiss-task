@@ -16,7 +16,7 @@ export const RocketLogo = () => {
           height="136.558"
           transform="rotate(64.4821 138.707 0.316162)"
           fill="url(#pattern0_76_27)"
-          shape-rendering="crispEdges"
+          shapeRendering="crispEdges"
         />
       </g>
       <defs>

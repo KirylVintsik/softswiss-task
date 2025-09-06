@@ -74,7 +74,11 @@ const App = () => {
             comfort so that you can fully enjoy your adventure in space. We
             offer various options for space excursions.
           </p>
-          <button className="yellow read_more_button ">Read more</button>
+          <p className="hidden_content">Well that's unfortunate</p>
+          <input className="secret_agent" id="read_more" type="checkbox" />
+          <label htmlFor="read_more" className="yellow read_more_button ">
+            Read more
+          </label>
         </section>
       </main>
       <footer className="footer">

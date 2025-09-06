@@ -307,12 +307,25 @@ $mediaMinWidth: 360px;
       }
 
       .main_description {
+        @include flex-column();
         font-weight: 500;
+
+        .hidden_content,
+        .secret_agent {
+          display: none;
+        }
+
         .read_more_button {
           font-size: clamp(1em, 100%, 20px);
           font-weight: 800;
           &:hover {
             opacity: 0.6;
+          }
+        }
+
+        &:has(.secret_agent:checked) {
+          .hidden_content {
+            display: inline;
           }
         }
       }
