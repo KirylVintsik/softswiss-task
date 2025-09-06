@@ -3,6 +3,7 @@ import './App.scss';
 import Logo from './assets/LOGO.svg';
 import { CloseMenuIcon, MenuIcon } from './burger-menu.component';
 import { CartLogo } from './cart-logo.component';
+import { RocketLogo } from './rocket.component';
 
 const tilesInfo = [
   {
@@ -59,9 +60,27 @@ const App = () => {
             <Tile id={i} key={'tile' + i} title={title} subtitle={subtitle} />
           ))}
         </section>
-        <section className="main_description"></section>
+        <section className="main_description">
+          <h2>Embark on a space journey</h2>
+          <p>
+            Travelling into space is one of the most exciting and unforgettable
+            adventures that can change your life forever. And if you have ever
+            dreamed of exploring stars, planets and galaxies, then our company
+            is ready to help you realize this dream. We offer a unique
+            experience that will allow you to go on a space journey and see all
+            the secrets of the universe. We guarantee that every moment in space
+            will be filled with incredible impressions, excitement and new
+            discoveries. Our team of professionals takes care of your safety and
+            comfort so that you can fully enjoy your adventure in space. We
+            offer various options for space excursions.
+          </p>
+          <button className="yellow read_more_button ">Read more</button>
+        </section>
       </main>
-      <footer className="footer"></footer>
+      <footer className="footer">
+        <RocketLogo />
+        <span className="yellow">Exciting space adventure!</span>
+      </footer>
     </div>
   );
 };
@@ -73,7 +92,11 @@ type LearnMoreButtonProps = {
 const LearnMoreButton = (
   { filled }: LearnMoreButtonProps = { filled: false },
 ) => {
-  return <button className={`button ${filled && 'filled'}`}>Learn more</button>;
+  return (
+    <button className={`learn_more_button ${filled && 'filled'}`}>
+      Learn more
+    </button>
+  );
 };
 
 type TileProps = {

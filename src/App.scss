@@ -4,9 +4,17 @@ body {
   padding: 0;
   box-sizing: border-box;
 
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
   ul {
     list-style: none;
   }
+
   a:link {
     text-decoration: none;
     color: inherit;
@@ -48,7 +56,7 @@ $mediaMinWidth: 360px;
   color: $yellow;
 }
 
-.button {
+.learn_more_button {
   padding: clamp(7px, 1vw, 14px) 40px;
   font-size: clamp(1em, 100%, 22px);
   font-weight: 700;
@@ -98,7 +106,7 @@ $mediaMinWidth: 360px;
 }
 
 .tile_content {
-  @include flex-column();
+  @include flex-column;
   flex: 1 1 auto;
   justify-content: center;
   height: 100%;
@@ -297,6 +305,24 @@ $mediaMinWidth: 360px;
           }
         }
       }
+
+      .main_description {
+        font-weight: 500;
+        .read_more_button {
+          font-size: clamp(1em, 100%, 20px);
+          font-weight: 800;
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+
+    .footer {
+      height: 127px;
+      @include flex-column;
+      align-items: center;
+      background-color: $black;
     }
   }
 }
