@@ -17,6 +17,6 @@ export default defineConfig({
     ],
   },
   output: {
-    assetPrefix: 'https://github.com/KirylVintsik/softswiss-task/tree/main',
+    assetPrefix: '/softswiss-task/',
   },
 });
