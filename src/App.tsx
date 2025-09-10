@@ -43,7 +43,8 @@ const App = () => {
         <section className="header_banner">
           <div className="header_banner_content tile_content">
             <h1 className="header_banner_title title">
-              Discover the vast expanses of <span className="pink">space</span>
+              Discover the vast <br />
+              expanses of <span className="pink">space</span>
             </h1>
             <p className="header_banner_subtitle subtitle">
               Where the possibilities are{' '}

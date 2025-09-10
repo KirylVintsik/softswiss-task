@@ -86,6 +86,7 @@ $mediaMinWidth: 360px;
 .title {
   display: inline-block;
   font-size: calc(4ch + 1vw);
+  font-weight: 800;
   max-width: 80%;
   line-height: 100%;
   word-wrap: break-word;
@@ -97,7 +98,7 @@ $mediaMinWidth: 360px;
 }
 
 .subtitle {
-  font-size: calc(2ch + 1vw);
+  font-size: clamp(24px, 26px, 26px);
   line-height: 100%;
 
   @media (max-width: $mediaBp1Width) {
@@ -138,7 +139,7 @@ $mediaMinWidth: 360px;
 
         .header_nav_content {
           @include flex-align-center;
-          padding: clamp(1em, 2vw, 4em);
+          padding: max(1em, min(2vw, 4em));
           justify-content: space-between;
           min-height: 48px;
           max-height: 80px;
@@ -223,29 +224,52 @@ $mediaMinWidth: 360px;
         height: 555px;
         @include flex-align-center;
 
-        .tile_content {
+        .header_banner_content {
           justify-content: center;
+
+          .header_banner_title {
+            white-space: nowrap;
+            max-width: 100%;
+          }
+        }
+
+        @media (min-width: $mediaBp1Width) {
+          padding: max(1em, min(2vw, 4em));
+
+          .header_banner_title {
+            font-size: clamp(62px, 10%, 72px);
+          }
         }
 
         @media (max-width: $mediaBp1Width) {
           background-position-x:
-            right -70px,
+            right -100px,
             center;
         }
 
         @media (max-width: $mediaMinWidth) {
-          height: 451px;
+          background-image:
+            linear-gradient(
+              to top,
+              rgba(0, 0, 0, 0.8) 0%,
+              rgba(0, 0, 0, 0) 100%
+            ),
+            url('./assets//EARTH.svg'), url('./assets/Rectangle\ 39610.svg');
+          background-size: cover, clamp(300px, 48%, 350px), cover;
           background-position-y:
-            top -120px,
+            center,
+            top -100px,
             center;
           background-position-x: center;
+
+          height: 451px;
           display: flex;
           text-align: center;
 
-          .tile_content {
+          .header_banner_content {
             align-items: center;
             justify-content: end;
-            padding-bottom: 2em;
+            padding-bottom: 6em;
           }
         }
       }
@@ -275,6 +299,13 @@ $mediaMinWidth: 360px;
             background-image:
               linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
               url('./assets/tile-0.svg');
+
+            @media (min-width: $mediaBp1Width) {
+              .title {
+                max-width: 90%;
+                font-size: 74px;
+              }
+            }
           }
           &.tile-1 {
             background-image:
