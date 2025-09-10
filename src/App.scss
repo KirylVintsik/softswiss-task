@@ -235,9 +235,20 @@ $mediaMinWidth: 360px;
 
         @media (min-width: $mediaBp1Width) {
           padding: max(1em, min(2vw, 4em));
+        }
 
+        @media (min-width: $mediaBp1Width) and (max-width: $mediaMaxWidth) {
           .header_banner_title {
-            font-size: clamp(62px, 10%, 72px);
+            font-size: calc(6vw - 2px);
+          }
+          .header_banner_subtitle {
+            font-size: calc(3vw);
+          }
+        }
+
+        @media (min-width: $mediaMaxWidth) {
+          .header_banner_title {
+            font-size: 72px;
           }
         }
 
